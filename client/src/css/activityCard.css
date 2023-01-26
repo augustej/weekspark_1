@@ -1,0 +1,126 @@
+@charset "UTF-8";
+.activity-card-small {
+  height: 100%;
+  min-width: 200px;
+  text-align: center;
+  padding: 1rem;
+  transition: all 0.2s ease;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.activity-card-small:hover:not(.empty) {
+  background-color: white;
+  box-shadow: 0 0 5px 3px black;
+  transform: scale(1.01);
+}
+.activity-card-small > a {
+  min-height: 370px;
+  text-decoration: none;
+}
+.activity-card-small img {
+  border-radius: 10px;
+  width: 100%;
+  max-height: 285px;
+  min-height: 285px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0px 2px 10px black;
+}
+.activity-card-small .text-part {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  margin-bottom: auto;
+}
+.activity-card-small .text-part h3 {
+  flex-basis: 100%;
+}
+.activity-card-small .details {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 1rem 0;
+}
+.activity-card-small .details > * {
+  display: flex;
+  gap: 0.4rem;
+}
+.activity-card-small .details > *:not(:last-child)::after {
+  padding: 0;
+  margin: 0;
+  content: "·";
+}
+.activity-card-small .small-card-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.activity-card-mini {
+  max-height: 200px;
+  min-height: 150px;
+  text-align: center;
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease;
+}
+.activity-card-mini:hover {
+  cursor: pointer;
+}
+.activity-card-mini > a {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.activity-card-mini .image-cont {
+  width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  position: relative;
+}
+.activity-card-mini img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0px 2px 10px black;
+}
+.activity-card-mini .text-part {
+  position: absolute;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.25rem;
+  border-radius: 0 0 10px 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.activity-card-mini:hover:not(.empty) {
+  background-color: white;
+  box-shadow: 0 0 5px 3px black;
+  transform: scale(1.01);
+}
+
+.grid-child.empty {
+  display: none;
+}
+
+@media (min-width: 500px) {
+  .grid-child.empty.activity-card-mini {
+    display: block;
+  }
+  .grid-child.empty.activity-card-mini:hover {
+    cursor: default;
+  }
+}
+@media (min-width: 780px) {
+  .grid-child.empty.activity-card-small {
+    display: block;
+  }
+}/*# sourceMappingURL=activityCard.css.map */

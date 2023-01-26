@@ -1,0 +1,18 @@
+/credentials
+/cache
+/store
+
+/node_modules
+
+# General
+*.DS_Store
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+__pycache__/
+

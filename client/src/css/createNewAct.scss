@@ -1,0 +1,81 @@
+$bright-background: #F3F3F5;
+$gray-background: rgb(226,225,231);
+$text-gray: #5D5C61;
+$text-gray2:rgb(112,112,113);
+$text-black: rgb(0,0,0);
+$roboto: 'Roboto', sans-serif;
+$pink:#f2777f;
+$yellow:rgb(252,237,220);
+$pinkGradient: linear-gradient(45deg, $pink, $yellow);
+
+.form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+    & h1{
+        flex-basis: 100%;
+    }
+
+    & .input-label-container{
+        flex-basis:100%;
+        & textarea{
+            min-height: 5rem;
+        }
+        &.link{
+            width:100%;
+            flex-direction: row;
+            justify-content: center;
+            gap: 0.5rem;
+            & > *{
+                flex-basis: 100%;
+            }}
+        &.checkbox{
+            flex-direction: row;
+            align-items: center;
+            & input{
+                flex-basis: 20%;
+            }
+            &:focus-within{
+                &:after{
+                    content: "";
+                    width: 0;
+                }
+            }
+        }
+    }
+    & .title-and-btn{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        & button{
+            margin-left: auto;
+            line-height: 1rem;
+        }
+        & .hidden-image-ids{
+            width: 0px;
+            border: none;
+            background-color: transparent;
+        }
+        & p{
+            margin-left: 0.5rem;
+        }
+    }
+    & .uploaded-img-status{
+        flex-basis: 100%;
+    }
+    & .usefull-links, 
+    & .image-upload,
+    & .spec-input{
+        width: 100%;
+    }
+
+    & > .prompt-btn{
+        margin:3rem auto;
+    }
+    
+}

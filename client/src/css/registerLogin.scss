@@ -1,0 +1,87 @@
+$bright-background: #F3F3F5;
+$gray-background: rgb(226,225,231);
+$text-gray: #5D5C61;
+$text-gray2:rgb(112,112,113);
+$text-black: rgb(0,0,0);
+$roboto: 'Roboto', sans-serif;
+$pink:rgb(242, 120, 128);
+$yellow:rgb(252,237,220);
+$lightyellow:rgb(255, 249, 243);
+$pinkGradient: linear-gradient(45deg, $pink, $yellow);
+
+.grid-child-form{
+    background: linear-gradient(260deg, $pink 0%, $lightyellow 65%);
+}
+
+.login-form{
+    width:100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    & h2{
+        margin-bottom: 1rem;
+    }
+    & > *:last-child{
+        margin: auto auto 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    & .error-msg{
+        color: $pink;
+    }
+}
+
+.input-label-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0.5rem 0;
+
+    & label{
+        margin: 0.25rem 0;
+    }
+    & input, & textarea, & select{
+        background-color: transparent;
+        width: 100%;
+        color: black;
+        border: none;
+        border-bottom: 1px solid $text-gray2;
+        &::placeholder{
+            font-weight: 200;
+            font-size: 0.8rem;
+            color: $text-gray2;
+            line-height: 1.5rem;
+        }
+        
+    }
+    
+    & input:focus, & textarea:focus, & select:focus{
+        outline: none;
+        background-color: transparent;
+
+        &::placeholder{
+            color: transparent;
+        } 
+    }
+    &:after{
+        content: "";
+        margin: -1px auto 0;
+        display: inline-block;
+        height: 2px;
+        width:0;
+        background-color: $pink;
+    }
+    &:focus-within{
+        &:after{
+            width:100%;
+            transition: width 0.5s ease;
+        }
+        & label{
+            color: $pink;
+        }
+    }
+
+}

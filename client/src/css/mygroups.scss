@@ -1,0 +1,145 @@
+$bright-background: #F3F3F5;
+$gray-background: rgb(226,225,231);
+$text-gray: #5D5C61;
+$text-gray2:rgb(112,112,113);
+$text-black: rgb(0,0,0);
+$roboto: 'Roboto', sans-serif;
+$pink:#f2777f;
+$yellow:rgb(252,237,220);
+$pinkGradient: linear-gradient(45deg, $pink, $yellow);
+
+.groups, .invitations{
+    & .text-bold-uppercase{
+        margin-bottom: 2rem;
+    }
+    & .modal-content{
+        padding:0.5rem;
+        margin: 1rem auto;
+    }
+    & .description{
+        text-align: center;
+        margin: 1rem auto;
+    }
+}
+
+.invitations{
+    & .btn{
+        margin: 1rem auto 0.5rem;
+    }
+}
+
+.groups{
+    
+    & .one-group{
+        position:relative;
+        &:hover{
+            cursor: pointer;
+            background: $pinkGradient;
+            box-shadow: 0px 2px 20px $yellow;
+
+            & .invited-no-resp li,
+                & .invited-no-resp p{
+                color: white;
+                transition: color 0.2s ease;
+            }
+            & li:first-child{
+                color: $text-black;    
+                transition: color 0.2s ease;
+                         
+            }
+        }
+
+        & .invited-no-resp{
+            display: flex;
+            gap: 0.3rem;
+            margin: -1rem 0 0 1rem;
+            & li, & p{
+                text-transform: capitalize;
+                list-style: none;
+                color: $text-gray2;  
+            }
+            & li:not(:last-child)::after{
+                content: ","
+            }
+        
+        }
+        &.current-group{
+            background:$pinkGradient;
+            box-shadow: 0px 2px 20px $yellow;
+            & li:first-child{
+                color: $text-black;                             
+            }
+            &:hover{
+                cursor: default;
+            }
+            & .invited-no-resp li,
+            & .invited-no-resp p{
+                color: white;
+            }
+        }
+        
+    }
+
+    & .group-members-list{
+
+        & > *:first-child{
+            text-align: center;
+            flex-basis: 100%;
+            margin-bottom: 0.5rem;
+        }
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        text-transform: capitalize;
+        list-style: none;
+        & li {
+            margin-right: 0.3rem;
+        }
+        & li:not(:last-child):not(:first-child)::after
+        {
+            content: ","
+        }
+
+        // &:hover li{
+        //     cursor: pointer;
+        //     color: $pink;
+        //     transition: color 0.1s ease;
+        // }
+      
+    }
+    & .leave-group{
+        position:absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+
+    }
+    & >*:nth-last-child(2){
+        margin-bottom: 3rem;
+    }
+
+    & .new-group, .join-group{
+        margin-top: 3rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        & .add-members{
+            position: absolute;
+            top: 0rem;
+            left: 12rem;
+        }
+        
+        & .send-invitations{
+            margin-top: 1rem;
+            min-width: 100%;
+        }
+        & .not-invited-display{
+            margin: -1rem 0 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 1rem;
+            
+        }
+    }
+}

@@ -1,0 +1,64 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.form h1 {
+  flex-basis: 100%;
+}
+.form .input-label-container {
+  flex-basis: 100%;
+}
+.form .input-label-container textarea {
+  min-height: 5rem;
+}
+.form .input-label-container.link {
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.form .input-label-container.link > * {
+  flex-basis: 100%;
+}
+.form .input-label-container.checkbox {
+  flex-direction: row;
+  align-items: center;
+}
+.form .input-label-container.checkbox input {
+  flex-basis: 20%;
+}
+.form .input-label-container.checkbox:focus-within:after {
+  content: "";
+  width: 0;
+}
+.form .title-and-btn {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.form .title-and-btn button {
+  margin-left: auto;
+  line-height: 1rem;
+}
+.form .title-and-btn .hidden-image-ids {
+  width: 0px;
+  border: none;
+  background-color: transparent;
+}
+.form .title-and-btn p {
+  margin-left: 0.5rem;
+}
+.form .uploaded-img-status {
+  flex-basis: 100%;
+}
+.form .usefull-links, .form .image-upload, .form .spec-input {
+  width: 100%;
+}
+.form > .prompt-btn {
+  margin: 3rem auto;
+}/*# sourceMappingURL=createNewAct.css.map */
