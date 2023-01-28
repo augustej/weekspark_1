@@ -20,7 +20,7 @@ const Invitations = ({refreshInvitations, callRefreshGroups, invitations, closeM
    }
 
    async function respondGroup(groupId, answer){
-    await fetch('/respond-invitation',
+    await fetch('/api/respond-invitation',
     {
         headers: {'Content-Type': 'application/json'},
         method:'POST',

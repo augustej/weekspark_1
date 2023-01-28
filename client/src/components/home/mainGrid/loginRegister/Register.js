@@ -62,7 +62,7 @@ function Register({showRegistration}){
     return(
         <div className="grid-child text-card grid-child-form">
 
-        <form action="/register" method="POST" onSubmit={handleSubmit} className="box-style-intro login-form">
+        <form action="/api/register" method="POST" onSubmit={handleSubmit} className="box-style-intro login-form">
         <h2 className="text-bold">Registration form</h2>
 
             {errorMessages.length > 0 ? 

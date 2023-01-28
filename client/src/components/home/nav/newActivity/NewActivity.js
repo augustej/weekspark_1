@@ -24,7 +24,7 @@ const NewActivity =({libraries, isLoaded, closeModal}) =>{
             {
                 formToSend.append('lat', lat)
                 formToSend.append('lng', lng)
-                fetch('/create-new-actvity', {
+                fetch('/api/create-new-actvity', {
                     method: 'POST',
                     body: formToSend
                   }
@@ -39,7 +39,7 @@ const NewActivity =({libraries, isLoaded, closeModal}) =>{
     }
     return(
         <div className="page-container modal-container">
-        <form className="new-activity-form form modal-content" method="POST" action="/create-new-actvity" onSubmit={handleSubmit}>
+        <form className="new-activity-form form modal-content" method="POST" action="/api/create-new-actvity" onSubmit={handleSubmit}>
             <h1 className="text-bold-uppercase">Add new Activity</h1>
             <button type="button" onClick={closeModal}>
                 <img src={closeBtn} alt="close symbol" className="close-modal-btn"/>

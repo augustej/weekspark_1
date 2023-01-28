@@ -125,7 +125,7 @@ function Nav({userLoggedIn, libraries, isLoaded, callRefreshGroups,
                         <li className="text-light-uppercase nav-li desktop create-new-activity-btn" onClick={createNewActivity}>Create Activity</li>
                         <li className="text-light-uppercase nav-li desktop" onClick={showGameRules}>Game Rules</li>
                         <li className="nav-li desktop">
-                            <form method="POST" action="/logout" onSubmit={handleLogout}>
+                            <form method="POST" action="/api/logout" onSubmit={handleLogout}>
                                 <button type="submit" className="black-btn">Logout</button>
                             </form>
                         </li>
