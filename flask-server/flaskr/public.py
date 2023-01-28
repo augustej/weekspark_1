@@ -8,7 +8,7 @@ from sqlalchemy import text
 
 public = Blueprint('public', __name__)
 
-@public.route("/create-new-actvity", methods=["POST"])
+@public.route("/api/create-new-actvity", methods=["POST"])
 def createNewActvity():
     if not (Activity_type.query.all()):
         loadTypes()
@@ -65,7 +65,7 @@ def createNewActvity():
 
     return redirect(homeurl)
 
-@public.route("/scroll")
+@public.route("/api/scroll")
 def allActivities():
     roundNr = int(request.args.get("nr"))
     lat = request.args.get("lat")
@@ -107,7 +107,7 @@ def allActivities():
 
     return activitiesArray
 
-@public.route("/get-group-suggestions", methods=['GET'])
+@public.route("/api/get-group-suggestions", methods=['GET'])
 def getGroupSuggestions():
     groupID = request.args.get("group")
     suggestedActivitiesObjects = Suggested_activities.query.filter_by(group_id=groupID).all()
@@ -130,7 +130,7 @@ def getGroupSuggestions():
 
     return activities
 
-@public.route("/get-activity")
+@public.route("/api/get-activity")
 def getActivity():
     activityId = request.args.get("activityID")
 
@@ -140,7 +140,7 @@ def getActivity():
     
     return activity
 
-@public.route("/get-winner-activity")
+@public.route("/api/get-winner-activity")
 def getWinner():
     groupId = request.args.get("groupID")
     listToPickTheWinner = []
@@ -166,8 +166,7 @@ def getWinner():
 
     return [winnerActivityId]        
 
-
-@public.route("/home")
+@public.route("/api/home")
 def homepage():
     activityObjects = Activity.query.all() 
     responseArray = []
@@ -188,7 +187,7 @@ def homepage():
 
     return responseArray
 
-@public.route("/suggest-activity", methods=["POST"])
+@public.route("/api/suggest-activity", methods=["POST"])
 def suggestActivity():
     if request.method == "POST":
         data = request.get_json()
@@ -208,7 +207,7 @@ def suggestActivity():
         db.session.commit()
         return Response("Successfully suggested", 200)
 
-@public.route("/send-invitation", methods=["POST"])
+@public.route("/api/send-invitation", methods=["POST"])
 def sendInvitation():
     data = request.get_json()
     groupToJoin = data['group']
@@ -244,7 +243,7 @@ def sendInvitation():
         db.session.commit()
     return usersNotFound
 
-@public.route("/get-invitations-and-groups", methods=["GET"])
+@public.route("/api/get-invitations-and-groups", methods=["GET"])
 def getInvitationsAndGroups():
     if request.method == 'GET':
         response = []
@@ -291,7 +290,7 @@ def getInvitationsAndGroups():
         response.append(groupsDict)
         return response
 
-@public.route("/respond-invitation", methods=["POST"])
+@public.route("/api/respond-invitation", methods=["POST"])
 def respondInvitation():
     if request.method == 'POST':
         data = request.get_json()
@@ -306,7 +305,7 @@ def respondInvitation():
         return Response("invitation was responded", 200)
 
 
-@public.route("/leave-group", methods=["POST"])
+@public.route("/api/leave-group", methods=["POST"])
 def leaveGroup():
     if request.method == 'POST':
         data = request.get_json()
@@ -330,7 +329,7 @@ def leaveGroup():
     return Response("ok", 200)
 
 
-@public.route("get-user-votes", methods=["GET"])
+@public.route("/api/get-user-votes", methods=["GET"])
 def getUserVotes():
     if request.method == 'GET':
         groupID = request.args.get("groupID")
@@ -363,7 +362,7 @@ def getUserVotes():
 
 
 
-@public.route("/vote-for-activity", methods=["POST"])
+@public.route("/api/vote-for-activity", methods=["POST"])
 def voteForActivity():
     if request.method=="POST":
         data = request.get_json()

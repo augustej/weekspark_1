@@ -8,7 +8,7 @@ from . import db
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/is-user-logged-in', methods=['GET'])
+@auth.route('/api/is-user-logged-in', methods=['GET'])
 def isLoggedin():
     try:
         hasname = current_user.name
@@ -36,13 +36,13 @@ def login():
     return response
     
 
-@auth.route('/logout', methods=["POST"])
+@auth.route('/api/logout', methods=["POST"])
 @login_required
 def logout():
     logout_user()
     return redirect(request.referrer)
 
-@auth.route('/register', methods=['POST'])
+@auth.route('/api/register', methods=['POST'])
 def signup():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -64,7 +64,7 @@ def signup():
         return redirect(request.referrer)
     
 
-@auth.route('/email-check', methods=['GET'])
+@auth.route('/api/email-check', methods=['GET'])
 def emailCheck():
     if request.method == 'GET':
         emailToCheck = request.args.get("email")
