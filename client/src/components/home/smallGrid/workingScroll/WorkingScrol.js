@@ -26,7 +26,7 @@ function WorkingScrol({originLat, originLng}) {
             setDataRound(dataRound + 1)
         }
         initialData()
-    }, [originLat])
+    }, [originLat, appliedOrigin, dataRound, originLng])
 
     async function fetchMoreData() {
         const res = await fetch("/scroll?nr=" + dataRound + "&lat=" + originLat + "&lng=" + originLng)

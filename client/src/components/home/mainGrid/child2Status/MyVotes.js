@@ -1,12 +1,9 @@
-import {useEffect} from "react"
-
-
 function MyVotes({votesUsed, otherMembers, groupSuggestions, callRefreshSuggestions, currentGroup, callRefreshVotes}){
 
     async function pickWinnerActivity(){
         const winnerData = await 
         fetch("/get-winner-activity?groupID=" + currentGroup)
-        const winnerActivity = await winnerData.json()
+        await winnerData.json()
         callRefreshVotes()
         callRefreshSuggestions()
     }

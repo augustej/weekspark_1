@@ -1,6 +1,5 @@
 import MyVotes from "./MyVotes"
 import WinnerCard from "./WinnerCard"
-import {useState} from "react"
 
 function Child2Status({
     votesUsed, otherMembers, currentGroup, groupSuggestions, callRefreshSuggestions, winner, callRefreshVotes

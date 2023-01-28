@@ -24,7 +24,7 @@ const DistanceDuration = ({activity, origin, libraries, isLoaded}) =>{
             setDurationMinutes(Math.floor(results.routes[0].legs[0].duration.value/60 - (hours*60)))
         }
         calculateRoute()
-    },[])
+    },[origin, activity.destination])
     
     return (
 

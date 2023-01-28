@@ -1,5 +1,4 @@
 import {useState} from "react"
-/*global google*/
 
 const SuggestActivity = ({activity, groups, callRefreshGroups}) =>{    
     

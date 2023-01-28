@@ -1,8 +1,7 @@
+/* eslint-disable no-unused-vars */
+
 import {useJsApiLoader, Autocomplete} from '@react-google-maps/api'
-// import {useState, useRef} from "react"
 /*global google*/
-
-
 
 function Destination({libraries, destinationRef} ){
 

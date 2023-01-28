@@ -28,7 +28,7 @@ function NewHome({
                 }
             getVotes()
         }    
-    }, [refreshVotes, currentGroup])
+    }, [refreshVotes, currentGroup, userLoggedIn])
 
     function callRefreshVotes(){
         setRefreshVotes(!refreshVotes)

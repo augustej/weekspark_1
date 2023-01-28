@@ -5,21 +5,24 @@ import SuggestActivity from "./SuggestActivity"
 import DisplayImage from "../helperComponents/DisplayImage"
 import "../../css/activityFullPage.css";
 import "../../css/newHome.css"
+
+/* eslint-disable no-unused-vars */
 /*global google*/
 
 const ActivityFullPage = ({origin, groups, callRefreshVotes, libraries, isLoaded, callRefreshGroups}) =>{    
     
-    const pageParams=useParams()
+    const pageParams = useParams()
     const [activity, setActivity]= useState({})
 
     useEffect(()=>{
+
         async function getActivity(){
             const data = await fetch('/get-activity?activityID=' + pageParams.id) 
             const res = await data.json()
             setActivity(res)
         }
         getActivity()        
-    }, [])
+    }, [pageParams])
 
   
     if (!isLoaded){
