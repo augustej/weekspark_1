@@ -17,7 +17,7 @@ def isLoggedin():
     except:
         return "false"
 
-@auth.route('/login', methods=['POST'])
+@auth.route('/api/login', methods=['POST'])
 def login(): 
  
     data = request.get_json()

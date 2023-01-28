@@ -21,7 +21,7 @@ function App() {
   useEffect(()=>{
     if (userLoggedIn) {
       async function getInvitationsAndGroups(){
-        const data = await fetch("/get-invitations-and-groups")
+        const data = await fetch("/api/get-invitations-and-groups")
         const joinedData = await data.json()
         joinedData.forEach((dictionary)=>{
           if (dictionary['invitations']){
@@ -56,7 +56,7 @@ function App() {
   }
 
   async function isUserLoggedIn(){
-    const data = await fetch("/is-user-logged-in")
+    const data = await fetch("/api/is-user-logged-in")
     const response = await data.json()
     if (response === true){
       setUserLoggedIn(true)
