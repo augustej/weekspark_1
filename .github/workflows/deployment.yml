@@ -1,20 +1,15 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
-name: Node.js CI
+name: WeekSpark deployment workflow
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  build_frontend:
     runs-on: self-hosted
     defaults:
       run:
         working-directory: client
-
     strategy:
       matrix:
         node-version: [18.x]
@@ -30,3 +25,19 @@ jobs:
         cache-dependency-path: '**/package-lock.json'
     - run: npm i
     - run: npm run build --if-present
+  
+  build_backend:
+       runs-on: self-hosted
+       strategy:
+         fail-fast: false
+         matrix:
+            python-version: [3.8]
+       steps:
+        - name: Initialize Python 3.8
+          uses: actions/setup-python@v1
+          with:
+            python-version: ${{matrix.python-version}}
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
