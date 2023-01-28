@@ -26,7 +26,8 @@ function WorkingScrol({originLat, originLng}) {
             setDataRound(dataRound + 1)
         }
         initialData()
-    }, [originLat, appliedOrigin, dataRound, originLng])
+    // eslint-disable-next-line
+    }, [originLat, appliedOrigin, originLng])
 
     async function fetchMoreData() {
         const res = await fetch("/scroll?nr=" + dataRound + "&lat=" + originLat + "&lng=" + originLng)
