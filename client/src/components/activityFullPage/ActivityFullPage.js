@@ -17,7 +17,7 @@ const ActivityFullPage = ({origin, groups, callRefreshVotes, libraries, isLoaded
     useEffect(()=>{
 
         async function getActivity(){
-            const data = await fetch('/get-activity?activityID=' + pageParams.id) 
+            const data = await fetch('/api/get-activity?activityID=' + pageParams.id) 
             const res = await data.json()
             setActivity(res)
         }

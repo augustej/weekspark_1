@@ -6,7 +6,7 @@ const ActivityCardSmall = ({activity, upvotedActivities, currentGroup,
 
     async function vote(id){
         const vote = {"groupID": currentGroup, "activityID":id}
-        const getData = await fetch("/vote-for-activity",
+        const getData = await fetch("/api/vote-for-activity",
         {
             headers:{'Content-Type':'application/json'},
             method:'POST',
@@ -27,7 +27,7 @@ const ActivityCardSmall = ({activity, upvotedActivities, currentGroup,
 
     async function removeFromSuggestions(id){
         const activityToRemove = {"group": currentGroup, "activity":id, "action":"remove"}
-        const getData = await fetch("/suggest-activity",
+        const getData = await fetch("/api/suggest-activity",
         {
             headers:{'Content-Type':'application/json'},
             method:'POST',

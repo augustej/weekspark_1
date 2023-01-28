@@ -6,7 +6,7 @@ const SuggestActivity = ({activity, groups, callRefreshGroups}) =>{
 
     function suggestActivity(id){
         const dictToSend = {"activity":activity.id, "group":id, "action":"suggest"}
-        fetch("/suggest-activity",
+        fetch("/api/suggest-activity",
             {method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(dictToSend)}

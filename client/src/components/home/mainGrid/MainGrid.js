@@ -23,7 +23,7 @@ function MainGrid({
 
     useEffect(()=>{
         async function getGroupsSuggestions(){        
-            const data = await fetch("/get-group-suggestions?group=" + currentGroup)
+            const data = await fetch("/api/get-group-suggestions?group=" + currentGroup)
             const res = await data.json()
             setGroupSuggestions(res)
             if (res.length === 0){

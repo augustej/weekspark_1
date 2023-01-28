@@ -2,7 +2,7 @@ function MyVotes({votesUsed, otherMembers, groupSuggestions, callRefreshSuggesti
 
     async function pickWinnerActivity(){
         const winnerData = await 
-        fetch("/get-winner-activity?groupID=" + currentGroup)
+        fetch("/api/get-winner-activity?groupID=" + currentGroup)
         await winnerData.json()
         callRefreshVotes()
         callRefreshSuggestions()

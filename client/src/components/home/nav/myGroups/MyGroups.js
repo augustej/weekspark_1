@@ -5,7 +5,7 @@ import NewGroup from "./NewGroup"
 const MyGroups = ({groups, callRefreshGroups, currentGroup, changeCurrentGroup, closeModal}) =>{
 
     function leaveGroup(groupID){
-        fetch("/leave-group",
+        fetch("/api/leave-group",
         {
             headers:{'Content-Type':'application/json'},
             method: 'POST',

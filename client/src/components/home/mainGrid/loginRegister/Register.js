@@ -10,7 +10,7 @@ function Register({showRegistration}){
     const [errorMessages, setErrorMessages] = useState([])
 
     async function checkIfEmailAvailable(email, event){
-        const res = await fetch("/email-check?email=" + email)
+        const res = await fetch("/api/email-check?email=" + email)
         const data = await res.json()
         let availability = false
         if (data !== false){availability = true}

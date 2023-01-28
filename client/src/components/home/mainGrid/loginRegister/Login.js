@@ -20,7 +20,7 @@ function Login({isUserLoggedIn}){
     async function handleLogin(event){
         event.preventDefault()
         const formData = {'email':email,'pass':pass}
-        const data = await fetch("/login",
+        const data = await fetch("/api/login",
             {
                 headers: {"Content-Type" : "application/json"},
                 method: 'POST',

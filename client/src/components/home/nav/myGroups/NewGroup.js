@@ -41,7 +41,7 @@ function NewGroup({callRefreshGroups, currentGroup}){
         }
 
         const emailsDict = {'group':group, 'emails':emailsArray}
-        const data = await fetch("/send-invitation", 
+        const data = await fetch("/api/send-invitation", 
             {
                 method:'POST',
                 headers: {'Content-Type': 'application/json'},

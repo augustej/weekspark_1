@@ -20,7 +20,7 @@ function WorkingScrol({originLat, originLng}) {
             setHasMoreValue(true)
         }
         async function initialData(){
-            const res = await fetch("/scroll?nr=0&lat=" + originLat + "&lng=" + originLng)
+            const res = await fetch("/api/scroll?nr=0&lat=" + originLat + "&lng=" + originLng)
             const data = await res.json()  
             setActivitiesToShow(data)
             setDataRound(dataRound + 1)
@@ -30,7 +30,7 @@ function WorkingScrol({originLat, originLng}) {
     }, [originLat, appliedOrigin, originLng])
 
     async function fetchMoreData() {
-        const res = await fetch("/scroll?nr=" + dataRound + "&lat=" + originLat + "&lng=" + originLng)
+        const res = await fetch("/api/scroll?nr=" + dataRound + "&lat=" + originLat + "&lng=" + originLng)
         const data = await res.json()  
         if (data === []){setHasMoreValue(false)}
         setActivitiesToShow(activitiesToShow.concat(data))

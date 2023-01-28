@@ -19,7 +19,7 @@ function NewHome({
     useEffect(()=>{
         if (userLoggedIn){
             async function getVotes(){
-                const data = await fetch("/get-user-votes?groupID=" + currentGroup)
+                const data = await fetch("/api/get-user-votes?groupID=" + currentGroup)
                 const dict = await data.json()
                 setUpvotedActivities(dict['voted_for'])   
                 setVotesUsed(dict['used_votes'])
