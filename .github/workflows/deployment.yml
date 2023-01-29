@@ -27,6 +27,7 @@ jobs:
     - run: npm run build --if-present
   
   build_backend:
+       needs: build_frontend
        runs-on: self-hosted
        defaults:
         run:
