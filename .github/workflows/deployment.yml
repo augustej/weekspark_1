@@ -29,6 +29,9 @@ jobs:
         cache-dependency-path: '**/package-lock.json'
     - run: npm i
     - run: npm run build --if-present
+    - name: Print name
+    - run: echo "Hello $REACT_APP_PRESET"
+    - run: echo "from secrets ${{secrets.REACT_APP_PRESET}}"
   
   build_backend:
        needs: build_frontend
