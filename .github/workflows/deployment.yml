@@ -19,9 +19,9 @@ jobs:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       env:
-        REACT_APP_GOOGLE_MAPS_API_KEY: ${{ env.REACT_APP_GOOGLE_MAPS_API_KEY }}
-        REACT_APP_CLOUD_NAME: ${{ env.REACT_APP_CLOUD_NAME }}
-        REACT_APP_PRESET: ${{ env.REACT_APP_PRESET }}
+        REACT_APP_GOOGLE_MAPS_API_KEY: ${{ vars.REACT_APP_GOOGLE_MAPS_API_KEY }}
+        REACT_APP_CLOUD_NAME: ${{ vars.REACT_APP_CLOUD_NAME }}
+        REACT_APP_PRESET: ${{ vars.REACT_APP_PRESET }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
@@ -45,7 +45,7 @@ jobs:
        steps:
         - name: Initialize Python 3.10
           env:
-            SECRET_KEY: ${{ env.SECRET_KEY }}
+            SECRET_KEY: ${{ vars.SECRET_KEY }}
           uses: actions/setup-python@v4
           with:
             python-version: ${{matrix.python-version}}
