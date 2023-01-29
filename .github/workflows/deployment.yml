@@ -5,18 +5,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-  set_env_vars:
-    runs-on: self-hosted
-    steps:
-      - name: "set-envs"
-        run: |
-          "REACT_APP_GOOGLE_MAPS_API_KEY=${{ vars.REACT_APP_GOOGLE_MAPS_API_KEY }}" >> $GITHUB_ENV
-          "REACT_APP_CLOUD_NAME=${{ vars.REACT_APP_CLOUD_NAME }}" >> $GITHUB_ENV
-          "REACT_APP_PRESET=${{ vars.REACT_APP_PRESET }}" >> $GITHUB_ENV
-          "REACT_APP_PRESET=${{ vars.REACT_APP_PRESET }}" >> $GITHUB_ENV
-          "SECRET_KEY=${{ vars.SECRET_KEY }}" >> $GITHUB_ENV
-          echo "Hello $REACT_APP_PRESET"
-
 
   build_frontend:
     runs-on: self-hosted
@@ -37,6 +25,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
+    - run: echo "REACT_APP_GOOGLE_MAPS_API_KEY=${{ vars.REACT_APP_GOOGLE_MAPS_API_KEY }}" >> .env
+    - run: echo "REACT_APP_CLOUD_NAME=${{ vars.REACT_APP_CLOUD_NAME }}" >> .env
+    - run: echo "REACT_APP_PRESET=${{ vars.REACT_APP_PRESET }}" >> .env
     - run: npm i
     - run: npm run build --if-present
   
@@ -57,6 +48,7 @@ jobs:
             python-version: ${{matrix.python-version}}
         - name: Install dependencies
           run: |
+            echo "SECRET_KEY=${{ vars.SECRET_KEY }}" >> .env
             python -m pip install --upgrade pip
             python -m venv venv
             source venv/bin/activate
