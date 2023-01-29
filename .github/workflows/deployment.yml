@@ -7,15 +7,16 @@ on:
 jobs:
   set_env_vars:
     runs-on: self-hosted
-    env:
-        Greeting: hellollo
-        REACT_APP_GOOGLE_MAPS_API_KEY: ${{ vars.REACT_APP_GOOGLE_MAPS_API_KEY }}
-        REACT_APP_CLOUD_NAME: ${{ vars.REACT_APP_CLOUD_NAME }}
-        REACT_APP_PRESET: ${{ vars.REACT_APP_PRESET }}
-        SECRET_KEY: ${{ vars.SECRET_KEY }}
     steps:
       - name: "set-envs"
-        run: echo "Hello $REACT_APP_PRESET $Greeting"
+        run: |
+          "REACT_APP_GOOGLE_MAPS_API_KEY=${{ vars.REACT_APP_GOOGLE_MAPS_API_KEY }}" >> $GITHUB_ENV
+          "REACT_APP_CLOUD_NAME=${{ vars.REACT_APP_CLOUD_NAME }}" >> $GITHUB_ENV
+          "REACT_APP_PRESET=${{ vars.REACT_APP_PRESET }}" >> $GITHUB_ENV
+          "REACT_APP_PRESET=${{ vars.REACT_APP_PRESET }}" >> $GITHUB_ENV
+          "SECRET_KEY=${{ vars.SECRET_KEY }}" >> $GITHUB_ENV
+          echo "Hello $REACT_APP_PRESET"
+
 
   build_frontend:
     runs-on: self-hosted
