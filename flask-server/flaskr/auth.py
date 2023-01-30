@@ -72,9 +72,3 @@ def emailCheck():
         if user:   
             return "false"
         return "true"       
-
-
-
-
-
-

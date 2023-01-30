@@ -13,7 +13,7 @@ def create_app():
     app = Flask(__name__, static_folder="../client/build", static_url_path="/")
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
     print(os.getenv('SECRET_KEY'), "ENV")
-    # app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DATABASE_NAME}'
+    # for local usage : app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DATABASE_NAME}'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join('../../../') + f'{DATABASE_NAME}'
     db.init_app(app)
 
@@ -25,7 +25,6 @@ def create_app():
 
 
     with app.app_context():
-        # db.drop_all()
         db.create_all()
 
     from .model import User

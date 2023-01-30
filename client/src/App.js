@@ -102,7 +102,6 @@ function App() {
       <Route path="/activity"> 
         <Route path=":id" element={ <ActivityFullPage callRefreshGroups={()=>callRefreshGroups()} origin={origin} groups={groups} isLoaded={isLoaded} libraries={libraries}/> } ></Route>
       </Route>
-       {/* <Route path="/add-new-activity" element={< NewActivity libraries={libraries} isLoaded={isLoaded}/>}></Route> */}
     </Routes>
   )
 }
